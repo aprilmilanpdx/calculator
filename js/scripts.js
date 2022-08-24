@@ -23,9 +23,19 @@ function handleCalculation(event) {
 const num1 = parseInt(document.querySelector("input#input1").value);
 const num2 = parseInt(document.querySelector("input#input2").value);
 const operator = document.querySelector("input[name='operator']:checked").value;
-console.log("Number 1: " + num1);
-console.log("Number 2: " + num2);
-console.log("Operator:", operator);
+
+let result;
+if (operator === "add") {
+  result = add(num1, num2);
+} else if (operator === "subtract") {
+  result = subtract(num1, num2);
+} else if (operator === "multiply") {
+  result = multiply(num1, num2);
+} else if (operator === "divide") {
+  result = divide(num1, num2);
+}
+
+document.getElementById("output").innerText = result;
 }
 
 window.addEventListener("load", function() {
